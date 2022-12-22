@@ -29,5 +29,10 @@
         }
     }
 
-    
+    public function executeSQL($sqlQuery, $params = []) {
+        $stmt = $this->dbConn->prepare($sqlQuery);
+        $stmt->execute($params);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
  }
