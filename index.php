@@ -13,6 +13,8 @@ if (!in_array($_SERVER['REQUEST_METHOD'], array("GET"))){
     http_response_code(405);
     $output['message'] = "Invalid: " . $_SERVER['REQUEST_METHOD'];
 } else {
+
+    //The stuff currently here needs to be put into the base class later on as this is what will be returned with the base class
     $studentInfo = array(
         "firstName" => "Jason",
         "lastName" => "Ankers",
