@@ -17,7 +17,7 @@
     private $sqlParams;
 
     public function __construct() {
-        $database = new Database(chiplay.sqlite);
+        $database = new Database("db/chiplay.sqlite");
 
         $this->initialiseSQL();
 
