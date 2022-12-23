@@ -10,11 +10,27 @@ header("Content-Type: application/json; charset = UTF-8");
 header("Access-Control-Allow-Origin: *");
 
 if (!in_array($_SERVER['REQUEST_METHOD'], array("GET"))){
-    http_response_code(405);
-    $output['message'] = "Invalid: " . $_SERVER['REQUEST_METHOD'];
+    $endpoint= new ClientError("Invalid: " . $_SERVER['REQUEST_METHOD'], 405);//review this as may need more than 1 check for different response codes
 } else {
 
-//code here
+    $path = parse_url($_SERVER['REQUEST_URI'])['path'];
+    $path = str_replace("/webYear3/assignment/api","",$path);
 
+    switch($path) {
+        case '/':
+            $endpoint = new Base();
+            break;
+        case '/papers' :
+            $endpoint = new Papers();
+            break;
+        case '/authors':
+            $endpoint = new Authors();
+            break;
+        default:
+            $endpoint = new ClientError("Path not found: " . $path, 404);
+    }
+
+    $response = $endpoint->getData();
+    echo json_encode($response);
     
 }
