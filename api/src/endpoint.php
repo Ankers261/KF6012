@@ -24,8 +24,9 @@
         $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
 
         $this->setData(array(
-            //The same pattern of JSON needs to be followed for all endpoints so this needs to be the same as base, actor, film and clienterror. Figure this out once
-            //You know what kind of information is needed
+            "length" => count($data),
+            "message" => "Successful",
+            "dataReturned" => $data
         ));
     }
 
@@ -37,12 +38,6 @@
         this->SQLParams = $params;
     }
 
-    protected function initialiseSQL() {
-        $sql = "";
-        this->setSQL($sql);
-        $this->setSQLParams([]);
-    }
-
     protected function setData($data) {
         $this->data = $data;
     }
@@ -51,4 +46,9 @@
         return $this->data;
     }
 
+    protected function initialiseSQL() {
+        $sql = "";
+        this->setSQL($sql);
+        $this->setSQLParams([]);
+    }
  }
