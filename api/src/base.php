@@ -24,7 +24,7 @@ class Base extends Endpoint {
             "docLink" => "LINK HERE FOR DOCUMENTATION PAGE" // This can be hardcoded - It will be created as part of TASK 4 so come back to this
         );
         
-        $database = new Database("db/chiplay.sqlite");
+        $database = new Database("/db/chiplay.sqlite");
 
         $this->initialiseSQL();
 
