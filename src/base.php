@@ -17,5 +17,8 @@ class Base extends Endpoint {
         $sqlQuery = ""; //SQL for retreiving specific imformation on the Base endpoint goes here
         $this->setSQL($sqlQuery);
         $this->setSQLParams([]);
+        
+        //ONCE DB CONNECTION IS MADE, TAKE THE CONFERENCE NAME FROM THE DATABSE USING THE FOLLOWING SQL
+        //"SELECT name FROM conference_information"
     }
 }
