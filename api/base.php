@@ -9,6 +9,7 @@
 class Base extends Endpoint {
 
     //RETHINK HOW THIS CLASS WORKS AS IT SHOULDNT HAVE TO OVERWRITE CONSTRUCTOR
+    //ACTUALLY THIS DOESNT WORK SO DEFINITELY NEEDS RETHINKING
     private $data;
     private $sqlQuery;
     private $sqlParams;
