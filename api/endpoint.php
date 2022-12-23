@@ -42,7 +42,7 @@
         $this->data = $data;
     }
 
-    protected function getData() {
+    public function getData() {
         return $this->data;
     }
 
