@@ -11,27 +11,42 @@ class Base extends Endpoint {
 
     public function __construct() {
 
-        
+        //Hardcoding student information
+        $studentInfo = array(
+            "firstName" => "Jason",
+            "lastName" => "Ankers",
+            "studentID" => "W20004105"
+        );
 
+        //Hardcoding documentation
+        $base = array(
+            "student" => $studentInfo,
+            "docLink" => "LINK HERE FOR DOCUMENTATION PAGE" // This can be hardcoded - It will be created as part of TASK 4 so come back to this
+        );
+        
         $database = new Database("db/chiplay.sqlite");
 
         $this->initialiseSQL();
 
         $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
 
+        //Combining SQL query for conference name with hardcoded data
+        $baseData = array(
+            "student" = $base,
+            "data" => $data
+        )
+
         $this->setData(array(
-            "length" => count($data),
+            "length" => count($baseData),
             "message" => "Successful",
-            "dataReturned" => $data
+            "dataReturned" => $baseData
         ));
     }
 
     protected function initialiseSQL() {
-        $sqlQuery = "";
+        $sqlQuery = "SELECT name FROM conference_information";
         $this->setSQL($sqlQuery);
         $this->setSQLParams([]);
         
-        //ONCE DB CONNECTION IS MADE, TAKE THE CONFERENCE NAME FROM THE DATABSE USING THE FOLLOWING SQL
-        //"SELECT name FROM conference_information"
     }
 }
