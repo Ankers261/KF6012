@@ -9,6 +9,10 @@
 header("Content-Type: application/json; charset = UTF-8");
 header("Access-Control-Allow-Origin: *");
 
+include 'src/autoloader.php';
+spl_autoload_register('autoloader');
+
+
 if (!in_array($_SERVER['REQUEST_METHOD'], array("GET"))){
     $endpoint= new ClientError("Invalid: " . $_SERVER['REQUEST_METHOD'], 405);//review this as may need more than 1 check for different response codes
 } else {
