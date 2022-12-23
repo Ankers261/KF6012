@@ -14,18 +14,7 @@ if (!in_array($_SERVER['REQUEST_METHOD'], array("GET"))){
     $output['message'] = "Invalid: " . $_SERVER['REQUEST_METHOD'];
 } else {
 
-    //The stuff currently here needs to be put into the base class later on as this is what will be returned with the base class
-    $studentInfo = array(
-        "firstName" => "Jason",
-        "lastName" => "Ankers",
-        "studentID" => "W20004105"
-    );
-
-    $output = array(
-        "student" => $studentInfo,
-        "docLink" => "LINK HERE FOR DOCUMENTATION PAGE" // This can be hardcoded - It will be created as part of TASK 4 so come back to this
-    );
+//code here
 
     
 }
- echo json_encode($output);
