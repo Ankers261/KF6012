@@ -12,9 +12,9 @@
 
  abstract class Endpoint {
 
-    private $data;
-    private $sqlQuery;
-    private $sqlParams;
+    protected $data;
+    protected $sqlQuery;
+    protected $sqlParams;
 
     public function __construct() {
         $database = new Database("db/chiplay.sqlite");
