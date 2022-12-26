@@ -9,7 +9,7 @@ class ClientError extends Endpoint {
         http_response_code($code);
 
         $this->setData(array(
-            "length" => 0,
+            "code" => $code,
             "message" => $message,
             "dataReturned" => null
         ));
