@@ -22,9 +22,14 @@ class Base extends Endpoint {
 
         $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
 
-        $this->setData(array(
+        $student = array(
             "name" => "Jason Ankers",
-            "stuID" => "W20004105",
+            "stuID" => "W20004105"
+        );
+
+        $this->setData(array(
+            "student" => $student,
+            "docLink" => "LINK HERE",
             "dataReturned" => $data
         ));
     }
