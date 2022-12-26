@@ -8,17 +8,25 @@
 
 class Base extends Endpoint {
 
-        $hardcodedData = array(
-            "fName" => "Jason",
-            "sName" => "Ankers",
-            "studentID" => "W20004105",
-            "docPage" => "LINK HERE"
-        );
+    protected function initialiseSQL() {
+        $sqlQuery = "SELECT name FROM conference_information"; 
+        $this->setSQL($sqlQuery);
+        $this->setSQLParams([]);
+    }
 
-        protected function initialiseSQL() {
-            $sqlQuery = "SELECT name FROM conference_information"; //SQL correct for now but will need a join to allow for paramters from paper table
-            $this->setSQL($sqlQuery);
-            $this->setSQLParams([]);
-        }
+    
+    public function __construct() {
+        $database = new Database("db/chiplay.sqlite");
 
+        $this->initialiseSQL();
+
+        $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
+
+        $this->setData(array(
+            "name" => "Jason Ankers",
+            "stuID" => "W20004105",
+            "dataReturned" => $data
+        ));
+    }
+    
 }
