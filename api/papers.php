@@ -18,29 +18,19 @@ class Papers extends Endpoint {
 
         if (filter_has_var(INPUT_GET, 'track')) {
             if(isset($sqlWhere)) {
-                $sqlWhere .= " AND track.short_name LIKE :track"; //If where is already set, another where is set so more than 1 track can be returned
+                $sqlWhere .= " AND sName = :track"; //If where is already set, another where is set so more than 1 track can be returned
             } else {
-                $sqlWhere = " WHERE track.short_name LIKE :track";//No where is set so 1 track name will be returned
+                $sqlWhere = " WHERE sName = :track";//No where is set so 1 track name will be returned
             }
             
             $sqlParams['track'] = $_GET['track'];
-        } else {
-            echo "NOPE";
-        }
+        } 
 
         if(isset($sqlWhere)) {
-            $sqlQuery .= $sqlWhere; //SO FAR THIS IS WHERE THE 
-                                    //PROGRAM GETS TO AND QUERY IS AS 
-                                    //EXPECTED THEREFORE IT IS SOMETHING WRONG WITH AFTER THIS
-        } else {
-            echo "NONO";
-        }
-
-
+            $sqlQuery .= $sqlWhere;
+        } 
 
         $this->setSQL($sqlQuery);
         $this->setSQLParams($sqlParams);
-
-
     }
 }
