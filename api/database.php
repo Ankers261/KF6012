@@ -19,7 +19,7 @@
      * 
      */
 
-    private function setdbConn($dbName) {
+    public function setdbConn($dbName) {
         try {
             $this->dbConn = new PDO('sqlite:'.$dbName);
             $this->dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
