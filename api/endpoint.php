@@ -35,7 +35,7 @@
     }
 
     protected function setSQLParams($params) {
-        $this->SQLParams = $params;
+        $this->sqlParams = $params;
     }
 
     protected function setData($data) {
