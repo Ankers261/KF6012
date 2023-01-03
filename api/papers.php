@@ -33,4 +33,8 @@ class Papers extends Endpoint {
         $this->setSQL($sqlQuery);
         $this->setSQLParams($sqlParams);
     }
+
+    protected function validEndpointParams() {
+        return ['track'];
+    }
 }

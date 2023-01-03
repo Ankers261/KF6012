@@ -35,4 +35,8 @@ class Authors extends Endpoint {
         $this->setSQL($sqlQuery);
         $this->setSQLParams($sqlParams);
     }
+
+    protected function validEndpointParams() {
+        return ['paper_id'];
+    }
 }
