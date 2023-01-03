@@ -14,7 +14,7 @@ spl_autoload_register('autoloader');
 
 
 if (!in_array($_SERVER['REQUEST_METHOD'], array("GET"))){
-    $endpoint= new ClientError("Invalid: " . $_SERVER['REQUEST_METHOD'], 405);//review this as may need more than 1 check for different response codes
+    $endpoint= new ClientError("Invalid: " . $_SERVER['REQUEST_METHOD'], 405);
 } else {
 
     $path = parse_url($_SERVER['REQUEST_URI'])['path'];
