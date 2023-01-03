@@ -18,6 +18,14 @@ class Authors extends Endpoint {
         $sqlParams = [];
 
         if(filter_has_var(INPUT_GET, 'paper_id')) {
+            
+            if(!filter_var($_GET['paper_id'],FILTER_VALIDATE_INT)) {
+                http_response_code(400);
+                $output['Message'] = "Paper ID MUST be an integer";
+                die(json_encode($output));
+            }
+
+
             if(isset($sqlWhere)) {
                 $sqlWhere .= " AND paper.paper_id = :paper_id";
             } else {
