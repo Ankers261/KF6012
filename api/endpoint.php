@@ -26,6 +26,8 @@
 
         $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
 
+        $this->noData($data);
+
         $this->setData(array(
             "length" => count($data),
             "message" => "Successful",
@@ -75,9 +77,22 @@
         foreach ($_GET as $key => $value) {
             if(!in_array($key, $sqlParams)) {
                 http_response_code(400);
-                $output['message'] = "Invalid query parameter: " . $key;
+                $output['Message'] = "Invalid query parameter: " . $key;
                 die(json_encode($output));
             }
+        }
+    }
+
+    /**
+     * 
+     * 
+     * 
+     */
+    protected function noData($data) {
+        if(count($data) == 0) {
+            http_response_code(400);
+            $output['Message'] = "Your query has returned no data. Try again.";
+            die(json_encode($output));
         }
     }
  }
