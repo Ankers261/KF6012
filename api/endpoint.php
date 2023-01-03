@@ -4,7 +4,9 @@
  * 
  * 
  * 
- * Parent class Endpoint which is used as a base for all the other endpoints to work from.
+ * Parent class Endpoint.
+ * 
+ * Used as a base for all the other endpoints to work from.
  * It is an abstract class as no instances of this class should be made.
  * 
  * @author Jason Ankers - W20004105
@@ -12,6 +14,7 @@
 
  abstract class Endpoint {
 
+    //Variables protected as they should only be used in this class and it's children
     protected $data;
     protected $sqlQuery;
     protected $sqlParams;
@@ -23,11 +26,11 @@
 
         $this->validateParams($this->validEndpointParams());
 
-
         $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
 
         $this->noData($data);
 
+        //The same format of this is used throughout the API
         $this->setData(array(
             "length" => count($data),
             "message" => "Successful",
@@ -51,7 +54,7 @@
         return $this->data;
     }
 
-   
+   //Established here but should be overwritten in each endpoint class
     protected function initialiseSQL() {
         $sql = "";
         $this->setSQL($sql);
@@ -59,10 +62,7 @@
     }
 
 
-    /**
-     * 
-     * 
-     */
+    //Established here but should be overwritten in each endpoint class
     protected function validEndpointParams() {
         return [];
     }
@@ -70,7 +70,9 @@
 
     /**
      * 
-     * 
+     * This function loops throught each of the valid parameters established in
+     * each of the individual endpoint classes and checks if the one searched for
+     * matches.
      * 
      */
     protected function validateParams($sqlParams) {
@@ -85,7 +87,8 @@
 
     /**
      * 
-     * 
+     * This function checks if the request made returns data. If it does not
+     * it returns a message for the user showing them this.
      * 
      */
     protected function noData($data) {
