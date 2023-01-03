@@ -16,6 +16,8 @@ class Papers extends Endpoint {
      * 
      * SQL specifies columns to return alongside joining the track table. 
      * The track table is used both in the initial query and as a parameter.
+     * 
+     * @author Jason Ankers - W20004105
      */
     protected function initialiseSQL() {
         $sqlQuery = "SELECT paper_id, title, award, 
