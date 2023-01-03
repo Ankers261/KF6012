@@ -21,6 +21,9 @@
 
         $this->initialiseSQL();
 
+        $this->validateParams($this->validEndpointParams());
+
+
         $data = $database->executeSQL($this->sqlQuery, $this->sqlParams);
 
         $this->setData(array(
@@ -46,9 +49,35 @@
         return $this->data;
     }
 
+   
     protected function initialiseSQL() {
         $sql = "";
         $this->setSQL($sql);
         $this->setSQLParams([]);
+    }
+
+
+    /**
+     * 
+     * 
+     */
+    protected function validEndpointParams() {
+        return [];
+    }
+
+
+    /**
+     * 
+     * 
+     * 
+     */
+    protected function validateParams($sqlParams) {
+        foreach ($_GET as $key => $value) {
+            if(!in_array($key, $sqlParams)) {
+                http_response_code(400);
+                $output['message'] = "Invalid query parameter: " . $key;
+                die(json_encode($output));
+            }
+        }
     }
  }
