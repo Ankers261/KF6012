@@ -1,7 +1,13 @@
 <?php
 
 /**
- * NEED EXPLAIN HERE
+ * Index page of the API.
+ * 
+ * Sets the headers for the API
+ * Adds the autoloader for the API to load the rest of the PHP files
+ * Checks the request method to make sure it is GET
+ * Provides access to the different API endpoints
+ * Encodes the JSON data from each enpoint and displays it
  * 
  * 
  * @author Jason Ankers - W20004105
@@ -20,6 +26,7 @@ if (!in_array($_SERVER['REQUEST_METHOD'], array("GET"))){
     $path = parse_url($_SERVER['REQUEST_URI'])['path'];
     $path = str_replace("/webYear3/assignment/api","",$path);
 
+    //Only used one endpoint case for each endpoint for ease
     switch($path) {
         case '/':
             $endpoint = new Base();
