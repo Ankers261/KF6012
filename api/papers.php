@@ -1,26 +1,36 @@
 <?php
 
 /**
- * Papers endpoint
+ * Papers endpoint.
  * 
- * @Author Jason Ankers - W20004105
+ * @author Jason Ankers - W20004105
  */
 
 class Papers extends Endpoint {
 
 
+    /**
+     * Sets SQL required by paper endpoint.
+     * 
+     * Overrides initialiseSQL function from parent class. 
+     * 
+     * SQL specifies columns to return alongside joining the track table. 
+     * The track table is used both in the initial query and as a parameter.
+     */
     protected function initialiseSQL() {
         $sqlQuery = "SELECT paper_id, title, award, 
         abstract, track.name AS track_name, track.short_name AS sName
-        FROM paper JOIN track on (paper.track_id = track.track_id)"; //SQL for retreiving specific imformation on the papers endpoint goes here
+        FROM paper JOIN track on (paper.track_id = track.track_id)";
 
         $sqlParams = [];
 
         if (filter_has_var(INPUT_GET, 'track')) {
             if(isset($sqlWhere)) {
-                $sqlWhere .= " AND sName = :track"; //If where is already set, another where is set so more than 1 track can be returned
+                //If a where clause is already set, another where clause is added so that more than one parameter can be used
+                $sqlWhere .= " AND sName = :track"; 
             } else {
-                $sqlWhere = " WHERE sName = :track";//No where is set so 1 track name will be returned
+                //No where clause is set so only one parameter used
+                $sqlWhere = " WHERE sName = :track";
             }
             
             $sqlParams['track'] = $_GET['track'];
@@ -34,6 +44,7 @@ class Papers extends Endpoint {
         $this->setSQLParams($sqlParams);
     }
 
+    //Establishes the paramter name array for this endpoint
     protected function validEndpointParams() {
         return ['track'];
     }
