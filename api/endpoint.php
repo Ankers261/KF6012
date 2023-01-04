@@ -93,7 +93,7 @@
      */
     protected function noData($data) {
         if(count($data) == 0) {
-            http_response_code(400);
+            http_response_code(200);
             $output['Message'] = "Your query has returned no data. Try again.";
             die(json_encode($output));
         }
