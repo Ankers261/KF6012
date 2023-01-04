@@ -9,21 +9,110 @@
     <div class = "page">
         <h1>Documentation page</h1>
         <div class = "student">
-            <h3>Name: Jason Ankers</h3>
-            <h3>Student ID: W20004105</h3>
+            <h2>Name: Jason Ankers</h2>
+            <h2>Student ID: W20004105</h2>
         </div>
         <div class = "endpoints">
             <div class = "base">
-                <h4>Base endpoint</h4>
-                <h5>/webYear3/assignment/api/</h5>
+                <h3><strong>Base endpoint:</strong> /webYear3/assignment/api/</h3>
+                <p><strong>Description:</strong> Returns a JSON object of information containing student information, a link to this document and the conference name.</p>
+                <p><strong>Methods supported:</strong> GET</p>
+                <p><strong>Params Supported:</strong> N/A</p>
+                <p><strong>Likely response codes:</strong> 200, 400</p>
+                <p><strong>Example link:</strong> 'http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/'</p>
+                <p><strong>Example response:</strong>
+                    {
+                        "student": {
+                        "name": "Jason Ankers",
+                        "stuID": "W20004105"
+                        },
+                        "docLink": "http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/documentation/documentation.html",
+                        "dataReturned": [
+                        {
+                        "name": "CHI PLAY '21: The Annual Symposium on Computer-Human Interaction in Play"
+                        }
+                        ]
+                    }
+                </p>
             </div>
             <div class = "authors">
-                <h4>Authors endpoint</h4>
-                <h5>/webYear3/assignment/api/authors</h5>
+                <h3><strong>Authors endpoint:</strong> /webYear3/assignment/api/authors</h3>
+                <p><strong>Description:</strong> Returns a JSON object of information about authors from the CHIPLAY database.</p>
+                <p><strong>Methods supported:</strong> GET</p>
+                <p><strong>Params Supported:</strong> 'paper_id'</p>
+                <p><strong>Likely response codes:</strong> 200, 400</p>
+                <p><strong>Example link:</strong> 'http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/authors?paper_id=64460'</p>
+                <p><strong>Example response:</strong> 
+                    {
+                        "length": 4,
+                        "message": "Successful",
+                        "dataReturned": [
+                        {
+                        "author_id": "64306",
+                        "first_name": "Adela",
+                        "middle_initial": null,
+                        "last_name": "Kapuscinska"
+                        },
+                        {
+                        "author_id": "64245",
+                        "first_name": "Payal",
+                        "middle_initial": "M",
+                        "last_name": "Bhujwala"
+                        },
+                        {
+                        "author_id": "64336",
+                        "first_name": "Melissa",
+                        "middle_initial": null,
+                        "last_name": "Kalarchian"
+                        },
+                        {
+                        "author_id": "64236",
+                        "first_name": "Jessica",
+                        "middle_initial": null,
+                        "last_name": "Hammer"
+                        }
+                        ]
+                        }
+                </p>
             </div>
             <div class = "papers">
-                <h4>Papers endpoint</h4>
-                <h5>/webYear3/assignment/api/papers</h5>
+                <h3><strong>Papers endpoint:</strong> /webYear3/assignment/api/papers</h3>
+                <p><strong>Description:</strong> Returns a JSON object of information about papers from the CHIPLAY database.</p>
+                <p><strong>Methods supported:</strong> GET</p>
+                <p><strong>Params Supported:</strong> 'track'</p>
+                <p><strong>Likely response codes:</strong> 200, 400</p>
+                <p><strong>Example link:</strong> 'http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/papers?track=fullpapers'</p>
+                <p><strong>Example response:</strong>
+
+                    {
+                        "length": 62,
+                        "message": "Successful",
+                        "dataReturned": [
+                        {
+                        "paper_id": "64455",
+                        "title": "Can Digital Games Teach Scientific Inquiry? A Case of How Affordances Can Become Constraints",
+                        "award": null,
+                        "abstract": "Digital games are increasingly being used to teach the processes of scientific inquiry. These games often make at least one of four key assumptions about scientific inquiry: that inquiry is a problem-solving process which is value-neutral, bounded by strict subject-matter constraints, and conducted by practitioners separable from society. However, feminist, STS, and pragmatist scholars have demonstrated the flawed nature of these assumptions. They highlight instead that: inquiry is a process of problematization that is value-laden, unbounded by subject-matter, and conducted by practitioners who socially, politically, and culturally situated. In this paper, I argue that three of the key affordances of digital games—their procedural, evaluative, and fictional qualities—can constrain their ability to teach inquiry understood as such. I examine these affordances and their relationship to the nature of scientific inquiry through a design case examining our game Solaria designed to teach students how to inquire into the development of solar cells. Specifically, I ask: To what extent can the procedural, evaluative, and fictional affordances of digital games (designed to teach students about solar cells) support the learning of scientific inquiry as a problematizing, situated, and value-laden process, unbounded by subject-matter constraints? I discuss how these affordances of games supported but ultimately limited the design of the game by trivializing real situations, predetermining criteria for progress, and distancing students from real-world risks and responsibilities, respectively. In conclusion, I briefly discuss how understanding these limitations can support the design of educational environments to complement digital games for teaching scientific inquiry.",
+                        "track_name": "CHI PLAY 2021 Full Papers",
+                        "sName": "fullpapers"
+                        },
+                        {
+                        "paper_id": "64456",
+                        "title": "Space Vision: Developing a Game for Vision Screening and Home-Based Monitoring",
+                        "award": "true",
+                        "abstract": "This paper presents a novel mobile serious game, “Space Vision”, which uses a hidden-object mechanic with fiducial marker detection to gamify a clinical test of visual acuity – a key marker of childhood eye disease. For Space Vision to become a credible clinical tool that can facilitate the screening and home-monitoring of children’s visual acuity, it must be able to sustain player engagement over the extended durations required to detect vision abnormalities. Hence, we pay particular attention to developing effective game characters – a crucial aspect of children’s game design.  Using an early prototype with 13 school children (aged 5-6 years), we investigate player experiences through a series of evaluation sessions, involving a single one-to-one observational playtest, semi-structured interview, and ideation activity with each child. Thematic analysis of our session video recordings, written observations, and ideation artefacts, found that future game iterations must: increase resonance between players and game characters by providing aesthetic and behavioural customisation, embrace more anthropomorphic styling, better imbue narratives pertaining to children’s ‘life scripts, and feature fantasy character powers as a form of self-expression. Meanwhile, greater physical device support and digital incentivisation of body posture and head position are key to improving the reliability of the visual acuity measurement.",
+                        "track_name": "CHI PLAY 2021 Full Papers",
+                        "sName": "fullpapers"
+                        },
+                        {
+                        "paper_id": "64457",
+                        "title": "Motivating Players to Perform an Optional Strenuous Activity in a Virtual Reality Exergame Using Virtual Performance Augmentation",
+                        "award": null,
+                        "abstract": "Research on VR Exergaming is mostly conducted with participants who are not presented a choice whether or not to play the exergame and thus to perform a certain strenuous activity. Whether players would engage in such activity if it were optional and how they could be motivated to do so is mostly neglected. Therefore, we have developed a novel controller and implemented a VR exergame that utilizes Virtual Performance Augmentation (VPA) to motivate players to engage in an optional strenuous activity. The motivational impact of three different conditions (VPA vs. Points vs. No Motivator) was evaluated in a study with 47 participants. Our results suggest that using VPA can significantly increase the time the players engage in the strenuous activity enriched by VPA, while in contrast to our hypotheses, no significant differences for the players' enjoyment and perceived exertion between the conditions were found. We discuss our findings in the context of motivation, exertion, and the resulting implications for further VR exergames research.",
+                        "track_name": "CHI PLAY 2021 Full Papers",
+                        "sName": "fullpapers"
+                        }......
+                </p>
             </div>
         </div>
     </div>

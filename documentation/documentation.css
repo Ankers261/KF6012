@@ -1,0 +1,69 @@
+
+body {
+    background-color: #A7B6CE;
+}
+
+.page {
+    margin: 1%;
+    padding: 1%;
+}
+
+.page h1 {
+    font-family: Verdana, sans-serif;
+}
+
+.page h2 {
+    font-family: Verdana, sans-serif;
+}
+
+.page p {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.student {
+    margin: 1%;
+}
+
+.endpoints {
+    margin-top: 5%;
+}
+
+.base {
+    margin-top: 5%;
+    margin-left: 1%;
+    padding: 1%;
+    background-color: #D5DDEA;
+    border-radius: 20px;
+    border: thick solid #75A0E5;
+}
+
+.authors {
+    margin-top: 5%;
+    margin-left: 1%;
+    padding: 1%;
+    background-color: #D5DDEA;
+    border-radius: 20px;
+    border: thick solid #75A0E5;
+}
+
+.papers {
+    margin-top: 5%;
+    margin-left: 1%;
+    padding: 1%;
+    background-color: #D5DDEA;
+    border-radius: 20px;
+    border: thick solid #75A0E5;
+}
+
+.base h3 {
+    font-family: Verdana, sans-serif;
+}
+
+.authors h3 {
+    font-family: Verdana, sans-serif;
+}
+
+.papers h3 {
+    font-family: Verdana, sans-serif;
+}
+
