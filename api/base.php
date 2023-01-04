@@ -34,7 +34,7 @@ class Base extends Endpoint {
 
         $this->setData(array(
             "student" => $student,
-            "docLink" => "LINK HERE",
+            "docLink" => "http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/documentation/documentation.html",
             "dataReturned" => $data
         ));
     }
