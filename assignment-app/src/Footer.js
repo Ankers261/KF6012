@@ -2,7 +2,7 @@
 function Footer() {
   return (
     <div className="Footer">
-        <h2>This is the footer</h2>
+        <h4>Jason Ankers - W20004105</h4>
     </div>
   );
 }
