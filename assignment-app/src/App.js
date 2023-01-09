@@ -21,7 +21,6 @@ function App() {
           <Route path = "/Competition" element = {<Competition/>} />
           <Route path = "/Doctoral" element = {<Doctoral/>} />
           <Route path = "/Rapid" element = {<Rapid/>} />
-
         </Routes>
       </Router>
     </div>
