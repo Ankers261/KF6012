@@ -1,14 +1,16 @@
 import Footer from './Footer';
 import Navbar from './Navbar';
+import Track from './Track';
 import { useEffect, useState } from 'react';
+import PaperInformation from './PaperInformation';
 
-function Competition() {
+function Papers() {
     
     const [papers, setPapers] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect( () => {
-        fetch("http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/papers?track=competition")
+        fetch("http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/papers")
         .then(
            (response) => response.json()
         )
@@ -27,15 +29,16 @@ function Competition() {
 
 
     const allPapers = papers.map(
-        (value, key) => <p key = {key}>
-            <div>Title: {value.title}</div>  <div>Award: {value.award}</div> <div>Abstract: {value.abstract}</div>
-        </p>
+        (value, key) => <section key = {key}>
+            <PaperInformation paperInfo = {value}/>
+        </section>
+        
+            
     )
     
     return (
-      <div className="Competition">
-        <h2>Competition</h2>
-        <Navbar/>
+      <div className="Papers">
+        <h2>Papers</h2>
         {loading && <p>Loading...</p>}
         {allPapers}
         <Footer/>
@@ -43,4 +46,4 @@ function Competition() {
     );
   }
   
-  export default Competition;
+  export default Papers;
