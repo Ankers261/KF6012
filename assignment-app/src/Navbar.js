@@ -5,6 +5,7 @@ function Navbar() {
       <div className="Navbar">
         <ul>
           <li><Link to = "/">Home</Link></li>
+          <li><Link to = "/Papers">Papers</Link></li>
           <li><Link to = "/Interactivity">Interactivity</Link></li>
           <li><Link to = "/Fullpapers">Fullpapers</Link></li>
           <li><Link to = "/Wip">Wip</Link></li>

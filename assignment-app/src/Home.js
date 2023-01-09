@@ -6,7 +6,6 @@ function Home() {
   return (
     <div className="Home">
         <h1>CHI PLAY '21</h1>
-        <Navbar/>
         <p>Overview text goes here...</p>
         <img src = {homeImage} alt = "Conference hall"/>
         <Footer/>
