@@ -12,7 +12,7 @@ function Navbar() {
          <h3>doctoral</h3>
          <h3>rapid</h3>
          <p>Each should include: name of track, Navbar, title, abstract, name of author, institution, awards, Footer. Alongside this, a way to search title is needed. Also, some filters that can be applied. Can do in react app or in the API.</p>
-         <p>This will mean that the api from task 1 should be altered appropriately</p>
+         <p>This will mean that the api from task 1 should be altered appropriately.</p>
       </div>
     );
   }
