@@ -1,26 +1,25 @@
 import './App.css';
 import Home from './Home';
 import React from 'react';
-import Interactivity from './Interactivity';
-import Fullpapers from './Fullpapers';
-import Wip from './Wip';
-import Competition from './Competition';
-import Doctoral from './Doctoral';
-import Rapid from './Rapid';
+import Papers from './Papers';
+import Track from './Track';
+import Navbar from './Navbar';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar/>
         <Routes>
           <Route path ="/" element = {<Home/>}/>
-          <Route path = "/Interactivity" element = {<Interactivity/>} />
-          <Route path = "/Fullpapers" element = {<Fullpapers/>} />
-          <Route path = "/Wip" element = {<Wip/>} />
-          <Route path = "/Competition" element = {<Competition/>} />
-          <Route path = "/Doctoral" element = {<Doctoral/>} />
-          <Route path = "/Rapid" element = {<Rapid/>} />
+          <Route path = "/Papers" element = {<Papers/>} />
+          <Route path = "/Interactivity" element = {<Track sName = "Interactivity"/>} />
+          <Route path = "/Fullpapers" element = {<Track sName = "fullpapers"/>} />
+          <Route path = "/Wip" element = {<Track sName = "wip"/>} />
+          <Route path = "/Competition" element = {<Track sName = "competition"/>} />
+          <Route path = "/Doctoral" element = {<Track sName = "doctoral"/>} />
+          <Route path = "/Rapid" element = {<Track sName = "rapid"/>} />
         </Routes>
       </Router>
     </div>
