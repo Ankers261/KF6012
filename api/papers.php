@@ -19,9 +19,14 @@ class Papers extends Endpoint {
      * 
      */
     protected function initialiseSQL() {
-        $sqlQuery = "SELECT paper_id, title, award, 
-        abstract, track.name AS track_name, track.short_name AS sName
-        FROM paper JOIN track on (paper.track_id = track.track_id)";
+
+        $sqlQuery = "SELECT paper.paper_id, title, award, abstract, track.name AS track_name, track.short_name AS sName, 
+        author.first_name, author.last_name, affiliation.country, affiliation.institution
+        FROM paper
+        JOIN track ON (paper.track_id = track.track_id)
+        JOIN paper_has_author ON (paper.paper_id = paper_has_author.paper_id)
+        JOIN author ON (paper_has_author.author_id = author.author_id)
+        JOIN affiliation ON (author.author_id = affiliation.author_id)";
 
         $sqlParams = [];
 
