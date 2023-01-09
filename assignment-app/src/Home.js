@@ -1,11 +1,13 @@
 import Navbar from './Navbar';
 import Footer from './Footer';
+import homeImage from './home-image.jpg';
 
 function Home() {
   return (
     <div className="Home">
         <h1>CHI PLAY '21</h1>
-        <h3>Image of the conference or something simlar goes here.</h3>
+        <p>Overview text goes here...</p>
+        <img src = {homeImage} alt = "Conference hall"/>
         <Navbar/>
         <Footer/>
     </div>
