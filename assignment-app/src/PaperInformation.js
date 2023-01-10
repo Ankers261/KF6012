@@ -47,6 +47,7 @@ function PaperInformation(props) {
                 <div className='award'><h4>Awards?</h4>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div>
                 <div className='authors'><h4>Author(/s)</h4>{allAuthors}</div>
             </div>}
+            {loading && <p>Loading....</p>}
         </div>
     )
 }
