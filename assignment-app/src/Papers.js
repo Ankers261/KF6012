@@ -9,6 +9,7 @@ function Papers() {
     const [papers, setPapers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectValue, setSelectValue] = useState('all');
 
     useEffect( () => {
         fetch("http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/papers")
@@ -33,20 +34,35 @@ function Papers() {
         return fullSearch.toLowerCase().includes(searchTerm.toLowerCase());
     }
 
-    const allPapers = papers.filter(searchPapers).map(
+    const selectAwarded = (value) => (
+        (value.award ? (value.award === selectValue) : selectValue === "") || selectValue === 'all'
+    )
+
+    const allPapers = papers.filter(searchPapers).filter(selectAwarded).map(
         (value, key) => <section key = {key}>
             <PaperInformation paperInfo = {value}/>
         </section>    
     )
-    
 
     const userTyping = (event) => setSearchTerm(event.target.value);
+
+    const onChangeSelect = (event) => setSelectValue(event.target.value);
+
+    
+
 
     return (
       <div className="Papers">
         <h2>Papers</h2>
         <h3>Search title: </h3>
         <input value = {searchTerm} onChange={userTyping}/>
+        <div>
+            <select value = {selectValue} onChange = {onChangeSelect}>
+                <option value = "all">All</option>
+                <option value = "true">Awarded</option>
+                <option value = "">Non-awarded</option>
+            </select>
+        </div>
         {loading && <p>Loading...</p>}
         {allPapers}
         <Footer/>
