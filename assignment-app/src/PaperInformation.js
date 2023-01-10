@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 function PaperInformation(props) {
 
@@ -6,7 +6,6 @@ function PaperInformation(props) {
     //This should fix the issue of the page not refreshing each when clicking on the links
     
     const [authors, setAuthors] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [visible, setVisible] = useState(false);
 
     const fetchData = () => {
@@ -17,7 +16,6 @@ function PaperInformation(props) {
         .then(
             (json) => {
                 setAuthors(json.dataReturned)
-                setLoading(false)
             }
         )
         .catch(
@@ -47,7 +45,7 @@ function PaperInformation(props) {
                 <div className='award'><h4>Awards?</h4>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div>
                 <div className='authors'><h4>Author(/s)</h4>{allAuthors}</div>
             </div>}
-            {loading && <p>Loading....</p>}
+            {props.loading && <p>Loading....</p>}
         </div>
     )
 }
