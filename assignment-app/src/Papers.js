@@ -1,6 +1,7 @@
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Track from './Track';
+import Select from './Select';
 import { useEffect, useState } from 'react';
 import PaperInformation from './PaperInformation';
 
@@ -46,9 +47,9 @@ function Papers() {
 
     const userTyping = (event) => setSearchTerm(event.target.value);
 
-    const onChangeSelect = (event) => setSelectValue(event.target.value);
-
-    
+    const handleSelectAward = (value) => {
+        setSelectValue(value);
+    }
 
 
     return (
@@ -56,13 +57,7 @@ function Papers() {
         <h2>Papers</h2>
         <h3>Search title: </h3>
         <input value = {searchTerm} onChange={userTyping}/>
-        <div>
-            <select value = {selectValue} onChange = {onChangeSelect}>
-                <option value = "all">All</option>
-                <option value = "true">Awarded</option>
-                <option value = "">Non-awarded</option>
-            </select>
-        </div>
+        <Select selectValue = {selectValue} handler = {handleSelectAward} />
         {loading && <p>Loading...</p>}
         {allPapers}
         <Footer/>
