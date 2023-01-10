@@ -22,10 +22,11 @@ class Authors extends Endpoint {
      * 
      */
     protected function initialiseSQL() {
-        $sqlQuery = "SELECT author.author_id, first_name, middle_initial, last_name
+        $sqlQuery = "SELECT author.author_id, first_name, middle_initial, last_name, affiliation.country, affiliation.institution
         FROM author 
         JOIN paper_has_author on (author.author_id = paper_has_author.author_id)
-        JOIN paper on (paper_has_author.paper_id = paper.paper_id)"; 
+        JOIN paper on (paper_has_author.paper_id = paper.paper_id)
+        JOIN affiliation ON (author.author_id = affiliation.author_id)"; 
 
         $sqlParams = [];
 
