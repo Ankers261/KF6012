@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import Footer from './Footer';
 import PaperInformation from './PaperInformation';
 
 function Track(props) {
@@ -36,6 +37,7 @@ function Track(props) {
       <div className="Track">
         {loading && <p>Loading...</p>}
         {allTracks}
+        <Footer/>
       </div>
     );
   }
