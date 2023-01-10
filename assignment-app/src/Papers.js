@@ -1,9 +1,8 @@
 import Footer from './Footer';
-import Navbar from './Navbar';
-import Track from './Track';
 import Select from './Select';
 import { useEffect, useState } from 'react';
 import PaperInformation from './PaperInformation';
+import Search from './Search';
 
 function Papers() {
     
@@ -45,10 +44,13 @@ function Papers() {
         </section>    
     )
 
-    const userTyping = (event) => setSearchTerm(event.target.value);
 
     const handleSelectAward = (value) => {
         setSelectValue(value);
+    }
+
+    const handleSearch = (term) => {
+        setSearchTerm(term);
     }
 
 
@@ -56,7 +58,7 @@ function Papers() {
       <div className="Papers">
         <h2>Papers</h2>
         <h3>Search title: </h3>
-        <input value = {searchTerm} onChange={userTyping}/>
+        <Search searchTerm = {searchTerm} handler = {handleSearch}/>
         <Select selectValue = {selectValue} handler = {handleSelectAward} />
         {loading && <p>Loading...</p>}
         {allPapers}
