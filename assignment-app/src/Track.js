@@ -27,9 +27,9 @@ function Track(props) {
 
 
     const allTracks = tracks.map(
-        (value, key) => <p key = {key}>
+        (value, key) => <section key = {key}>
             <PaperInformation paperInfo = {value}/>
-        </p>
+        </section>
     )
     
     return (

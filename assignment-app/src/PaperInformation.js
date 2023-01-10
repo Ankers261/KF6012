@@ -28,7 +28,7 @@ function PaperInformation(props) {
 
     const allAuthors = authors.map(
         (value, key) => <section key = {key}>
-            <p>{value.first_name}, {value.last_name}</p>
+            <div>{value.first_name}, {value.last_name}</div>
         </section>    
     )
 
