@@ -7,8 +7,9 @@ function PaperInformation(props) {
     
     const [authors, setAuthors] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [visible, setVisible] = useState(false);
 
-    useEffect( () => {
+    const fetchData = () => {
         fetch("http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/authors?paper_id=" + props.paperInfo.paper_id)
         .then(
            (response) => response.json()
@@ -24,7 +25,7 @@ function PaperInformation(props) {
                 console.log(e.message)
             }
         )
-    }, []);
+    };
 
     const allAuthors = authors.map(
         (value, key) => <section key = {key}>
@@ -32,13 +33,20 @@ function PaperInformation(props) {
         </section>    
     )
 
+    const showDetails = () => {
+        fetchData();
+        setVisible(!visible)
+    }
+
 
     return (
-        <div className = "PaperInformation">
-            <div className='title'><h4>Title</h4>{props.paperInfo.title}</div>
-            <div className='abstract'><h4>Abstract</h4>{props.paperInfo.abstract}</div>
-            <div className='award'><h4>Awards?</h4>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div>
-            <div className='authors'><h4>Author(/s)</h4>{allAuthors}</div>
+        <div className = "PaperInformation" onClick = {showDetails}>
+            <div className='title'>{props.paperInfo.title}</div>
+            {visible && <div>
+                <div className='abstract'><h4>Abstract</h4>{props.paperInfo.abstract}</div>
+                <div className='award'><h4>Awards?</h4>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div>
+                <div className='authors'><h4>Author(/s)</h4>{allAuthors}</div>
+            </div>}
         </div>
     )
 }
