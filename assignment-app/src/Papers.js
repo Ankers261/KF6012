@@ -31,9 +31,7 @@ function Papers() {
     const allPapers = papers.map(
         (value, key) => <section key = {key}>
             <PaperInformation paperInfo = {value}/>
-        </section>
-        
-            
+        </section>    
     )
     
     return (
