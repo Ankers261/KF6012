@@ -4,12 +4,11 @@ import React from 'react';
 import Papers from './Papers';
 import Track from './Track';
 import Navbar from './Navbar';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Router>
         <Navbar/>
         <Routes>
           <Route path ="/" element = {<Home/>}/>
@@ -21,7 +20,6 @@ function App() {
           <Route path = "/Doctoral" element = {<Track sName = "doctoral"/>} />
           <Route path = "/Rapid" element = {<Track sName = "rapid"/>} />
         </Routes>
-      </Router>
     </div>
   );
 }
