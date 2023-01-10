@@ -8,6 +8,7 @@ function Papers() {
     
     const [papers, setPapers] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect( () => {
         fetch("http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/papers")
@@ -27,16 +28,25 @@ function Papers() {
         )
     }, []);
 
+    const searchPapers = (value) => {
+        const fullSearch = value.title + " " + value.abstract;
+        return fullSearch.toLowerCase().includes(searchTerm.toLowerCase());
+    }
 
-    const allPapers = papers.map(
+    const allPapers = papers.filter(searchPapers).map(
         (value, key) => <section key = {key}>
             <PaperInformation paperInfo = {value}/>
         </section>    
     )
     
+
+    const userTyping = (event) => setSearchTerm(event.target.value);
+
     return (
       <div className="Papers">
         <h2>Papers</h2>
+        <h3>Search title: </h3>
+        <input value = {searchTerm} onChange={userTyping}/>
         {loading && <p>Loading...</p>}
         {allPapers}
         <Footer/>
