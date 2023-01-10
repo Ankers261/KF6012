@@ -35,10 +35,10 @@ function PaperInformation(props) {
 
     return (
         <div className = "PaperInformation">
-            <div>{props.paperInfo.title}</div>
-            <div>{props.paperInfo.abstract}</div>
-            <div>{props.paperInfo.award}</div>
-            <div>{allAuthors}</div>
+            <div className='title'><h4>Title</h4>{props.paperInfo.title}</div>
+            <div className='abstract'><h4>Abstract</h4>{props.paperInfo.abstract}</div>
+            <div className='award'><h4>Awards?</h4>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div>
+            <div className='authors'><h4>Author(/s)</h4>{allAuthors}</div>
         </div>
     )
 }
