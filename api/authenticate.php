@@ -1,9 +1,9 @@
 <?php
-
 /**
  * 
  * 
  */
+use FirebaseJWT\JWT;
 
 class Authenticate extends Endpoint {
 
@@ -17,13 +17,19 @@ class Authenticate extends Endpoint {
         $this->validateUsername($queryResult);
         $this->validatePassword($queryResult);
 
-        http_response_code(503);
+        $data['token'] = $this->createJWT($queryResult);
 
         $this->setData(array(
             "length" => 0,
-            "message" => "endpoint under construction",
-            "dataReturned" => $queryResult
+            "message" => "Success",
+            "dataReturned" => $data
         ));
+    }
+
+    protected function initialiseSQL() {
+        $sqlQuery = "SELECT account_id, name, username, password FROM account WHERE username = :username";
+        $this->setSQL($sqlQuery);
+        $this->setSQLParams(['username'=>$_SERVER['PHP_AUTH_USER']]);
     }
 
     private function validateRequestMethod($method) {
@@ -51,9 +57,19 @@ class Authenticate extends Endpoint {
         }
     }
 
-    protected function initialiseSQL() {
-        $sqlQuery = "SELECT account_id, name, username, password FROM account WHERE username = :username";
-        $this->setSQL($sqlQuery);
-        $this->setSQLParams(['username'=>$_SERVER['PHP_AUTH_USER']]);
+    private function createJWT($queryResult) {
+        $secretKey = SECRET;
+
+        $tokenPayload = [
+            'id' => $queryResult[0]['account_id'],
+            'username' => $queryResult[0]['username'],
+            "iss" => $_SERVER['HTTP_HOST']
+        ];
+
+        $jwt = JWT::encode($tokenPayload, $secretKey, 'HS256');
+
+        return $jwt;
     }
+
+    
 }

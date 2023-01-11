@@ -15,6 +15,8 @@
 header("Content-Type: application/json; charset = UTF-8");
 header("Access-Control-Allow-Origin: *");
 
+define('SECRET', "n<u~xNPiUns@g4X");
+
 include 'autoloader.php';
 spl_autoload_register('autoloader');
 
