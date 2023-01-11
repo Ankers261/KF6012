@@ -1,0 +1,39 @@
+
+.Navbar {
+    padding: 1%;
+    margin: 1%;
+    background-color: #0047AB;
+}
+
+ul {
+    list-style-type: none;
+    width: 60px;
+}
+
+li {
+    display: inline;
+}
+
+.link {
+    padding: 20px;
+    background-color: white;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.track {
+    padding: 16px;
+    background-color: white;
+    text-decoration: none;
+    color: darkblue;
+    font-size: 16px;
+}
+
+.link:hover {
+    background-color: pink;
+}
+
+.track:hover {
+    background-color: grey;
+}
