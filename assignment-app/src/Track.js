@@ -4,6 +4,7 @@ import Footer from './Footer';
 import PaperInformation from './PaperInformation';
 import Search from './Search';
 import Select from './Select';
+import './Track.css';
 
 function Track(props) {
     
@@ -56,13 +57,16 @@ function Track(props) {
     }
     
     return (
-      <div className="Track">
-        <Search searchTerm = {searchTerm} handler = {handleSearch}/>
-        <Select selectValue = {selectValue} handler = {handleSelectAward} />
-        {allTracks}
-        {loading && <p>Loading...</p>}
-        <Footer/>
-      </div>
+        <div>
+            <div  className="Track">
+                <h2>{props.sName} track</h2>
+                <Search searchTerm={searchTerm} handler={handleSearch} />
+                <Select selectValue={selectValue} handler={handleSelectAward} />
+                {allTracks}
+                {loading && <p>Loading...</p>}
+            </div>
+            <Footer />
+        </div>
     );
   }
   

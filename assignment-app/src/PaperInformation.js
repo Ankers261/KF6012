@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './PaperInfo.css';
 
 function PaperInformation(props) {
 
@@ -27,7 +28,7 @@ function PaperInformation(props) {
 
     const allAuthors = authors.map(
         (value, key) => <section key = {key}>
-            <div> Name: {value.first_name} {value.last_name}<div/><div>Country: {value.country}</div><div>Institution: {value.institution}</div></div>
+            <div className = 'allAuthors'> Name: {value.first_name} {value.last_name}<div/><div>Country: {value.country}</div><div>Institution: {value.institution}</div></div>
         </section>    
     )
 
@@ -41,9 +42,9 @@ function PaperInformation(props) {
         <div className = "PaperInformation" onClick = {showDetails}>
             <div className='title'>{props.paperInfo.title}</div>
             {visible && <div>
-                <div className='abstract'><h4>Abstract</h4>{props.paperInfo.abstract}</div>
-                <div className='award'><h4>Awards?</h4>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div>
-                <div className='authors'><h4>Author(/s)</h4>{allAuthors}</div>
+                <div className='abstract'><h4>Abstract</h4><div className='trackText'>{props.paperInfo.abstract}</div></div>
+                <div className='award'><h4>Award status</h4><div className='trackText'>{props.paperInfo.award ? 'Awarded' : 'Not Awarded'}</div></div>
+                <div className='authors'><h4>Author(/s)</h4><div className='trackText'>{allAuthors}</div></div>
             </div>}
             {props.loading && <p>Loading....</p>}
         </div>

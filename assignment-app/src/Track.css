@@ -1,0 +1,12 @@
+.Track {
+    background-color: lightgray;
+    margin: auto;
+    width: 95%;
+    padding: 10px;
+    border-radius: 20px;
+    border: thin solid black;
+}
+
+h2 {
+    text-transform: capitalize;
+}

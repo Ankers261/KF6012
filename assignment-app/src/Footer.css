@@ -1,0 +1,21 @@
+.Footer {
+    background-color: #0047AB;
+    padding: 30px;
+    margin-top: 30px;
+}
+
+.footerText {
+    border-radius: 10px;
+    border: thin solid black;
+    background-color: white;
+    width: 20%;
+    margin: auto;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}

@@ -3,6 +3,7 @@ import Select from './Select';
 import { useEffect, useState } from 'react';
 import PaperInformation from './PaperInformation';
 import Search from './Search';
+import './Papers.css';
 
 function Papers() {
     
@@ -57,7 +58,7 @@ function Papers() {
     return (
       <div className="Papers">
         <h2>Papers</h2>
-        <h3>Search title: </h3>
+        <h3>Search:</h3>
         <Search searchTerm = {searchTerm} handler = {handleSearch}/>
         <Select selectValue = {selectValue} handler = {handleSelectAward} />
         {loading && <p>Loading...</p>}
