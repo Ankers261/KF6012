@@ -18,6 +18,9 @@ header("Access-Control-Allow-Origin: *");
 include 'autoloader.php';
 spl_autoload_register('autoloader');
 
+include 'exceptionhandler.php';
+set_exception_handler('exceptionhandler');
+
 
 if (!in_array($_SERVER['REQUEST_METHOD'], array("GET", "POST"))){
     $endpoint= new ClientError("Invalid: " . $_SERVER['REQUEST_METHOD'], 405);
@@ -27,22 +30,26 @@ $path = parse_url($_SERVER['REQUEST_URI'])['path'];
 $path = str_replace("/webYear3/assignment/api","",$path);
 
 //Only used one endpoint case for each endpoint for ease
-switch($path) {
-    case '/':
-        $endpoint = new Base();
-        break;
-    case '/papers' :
-        $endpoint = new Papers();
-        break;
-    case '/authors':
-        $endpoint = new Authors();
-        break;
-    case '/authenticate':
-        $endpoint = new Authenticate();
-        break;
-    default:
-        $endpoint = new ClientError("Path not found: " . $path, 404);
-}
+try {
+    switch($path) {
+        case '/':
+            $endpoint = new Base();
+            break;
+        case '/papers' :
+            $endpoint = new Papers();
+            break;
+        case '/authors':
+            $endpoint = new Authors();
+            break;
+        case '/authenticate':
+            $endpoint = new Authenticate();
+            break;
+        default:
+            $endpoint = new ClientError("Path not found: " . $path, 404);
+    } 
+} catch(ClientErrorException $e) {
+        $endpoint = new ClientError($e->getMessage(), $e->getCode());
+    }
 
 $response = $endpoint->getData();
 echo json_encode($response);
