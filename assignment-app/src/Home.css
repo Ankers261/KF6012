@@ -1,0 +1,20 @@
+.Home {
+    margin-top: 2%;
+}
+
+h1 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 200px;
+}
+
+p {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+img {
+    width: 75%;
+    border-radius: 20px;
+    border: 5px solid black;
+}

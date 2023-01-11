@@ -20,20 +20,28 @@ li {
     text-decoration: none;
     font-size: 20px;
     color: black;
+    border-radius: 10px;
+    margin: 5px;
 }
 
 .track {
     padding: 16px;
     background-color: white;
     text-decoration: none;
-    color: darkblue;
+    color: #0047AB;
     font-size: 16px;
+    border-radius: 10px;
+    margin: 5px;
 }
 
 .link:hover {
     background-color: pink;
+    border: 2px black solid;
+    margin: 3px;
 }
 
 .track:hover {
-    background-color: grey;
+    background-color: #EAA221;
+    border: 2px black solid;
+    margin: 3px;
 }
