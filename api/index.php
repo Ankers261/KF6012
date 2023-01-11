@@ -46,6 +46,9 @@ try {
         case '/authenticate':
             $endpoint = new Authenticate();
             break;
+        case '/update':
+            $endpoint = new Update();
+            break;
         default:
             $endpoint = new ClientError("Path not found: " . $path, 404);
     } 

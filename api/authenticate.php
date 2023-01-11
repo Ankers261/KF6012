@@ -32,11 +32,6 @@ class Authenticate extends Endpoint {
         $this->setSQLParams(['username'=>$_SERVER['PHP_AUTH_USER']]);
     }
 
-    private function validateRequestMethod($method) {
-        if ($_SERVER['REQUEST_METHOD'] != $method) {
-            throw new ClientErrorException("Invalid request method", 405);
-        }
-    }
 
     private function validateAuthParams() {
         if(!isset($_SERVER['PHP_AUTH_USER']) || !isset($_SERVER['PHP_AUTH_PW'])) {

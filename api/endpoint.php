@@ -106,4 +106,10 @@
             die(json_encode($output));
         }
     }
+
+    protected function validateRequestMethod($method) {
+        if ($_SERVER['REQUEST_METHOD'] != $method) {
+            throw new ClientErrorException("Invalid request method", 405);
+        }
+    }
  }
