@@ -18,6 +18,7 @@ function Navbar() {
     <div className="Navbar">
       <ul>
         <li><Link className = 'link' to = "/">Home</Link></li>
+        <li><Link className = 'link' to = "/Admin">Admin</Link></li>
         <li><Link className = 'link' to = "/Papers">Papers</Link></li>
         <li><Link className = 'track' to = "/Interactivity"  onClick={refreshPage}>Interactivity</Link></li>
         <li><Link className = 'track' to = "/Fullpapers" onClick={refreshPage}>Fullpapers</Link></li>
