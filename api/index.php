@@ -14,6 +14,10 @@
  */
 header("Content-Type: application/json; charset = UTF-8");
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {    
+    exit(0);
+} 
 
 define('SECRET', "n<u~xNPiUns@g4X");
 
