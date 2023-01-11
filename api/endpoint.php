@@ -42,8 +42,16 @@
         $this->sqlQuery = $sql;
     }
 
+    protected function getSQL() {
+        return $this->sqlQuery;
+    }
+
     protected function setSQLParams($params) {
         $this->sqlParams = $params;
+    }
+
+    protected function getSQLParams() {
+        return $this->sqlParams;
     }
 
     protected function setData($data) {
