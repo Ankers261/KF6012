@@ -1,5 +1,12 @@
 <?php
  
+/**
+ * 
+ * Handles custom exceptions
+ * 
+ * @author - John Rooksby
+ */
+
 function exceptionHandler($e) {
     http_response_code(500);
     $output['message'] = $e->getMessage();

@@ -5,8 +5,10 @@ use FirebaseJWT\Key;
 
 /**
  * 
+ * Endpoint used to update the papers database's paper award status
  * 
- * 
+ * @author Jason Ankers - W20004105
+ * @author John Rooksby
  */
 class Update extends Endpoint {
 
@@ -28,6 +30,7 @@ class Update extends Endpoint {
     }
 
 
+    //Validates the JWT
     private function validateToken() {
         $secretKey = SECRET;
 
@@ -59,6 +62,7 @@ class Update extends Endpoint {
         }
     }
 
+    //Takes in and filters the paper_id and award JSON data
     private function validateUpdateParams() {
         if (!filter_has_var(INPUT_POST,'paper_id')) {
             throw new ClientErrorException("paper_id parameter required", 400);

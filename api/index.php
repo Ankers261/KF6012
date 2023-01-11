@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 } 
 
+//Global generated secret key for accessing the auth endpoint
 define('SECRET', "n<u~xNPiUns@g4X");
 
 include 'autoloader.php';
@@ -27,7 +28,7 @@ spl_autoload_register('autoloader');
 include 'exceptionhandler.php';
 set_exception_handler('exceptionhandler');
 
-
+//Defines valid request methods
 if (!in_array($_SERVER['REQUEST_METHOD'], array("GET", "POST"))){
     $endpoint= new ClientError("Invalid: " . $_SERVER['REQUEST_METHOD'], 405);
 } else {

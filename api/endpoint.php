@@ -107,6 +107,7 @@
         }
     }
 
+    //Added to be used in multiple otehr endpoints. Checks the request method.
     protected function validateRequestMethod($method) {
         if ($_SERVER['REQUEST_METHOD'] != $method) {
             throw new ClientErrorException("Invalid request method", 405);

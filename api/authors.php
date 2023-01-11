@@ -30,6 +30,7 @@ class Authors extends Endpoint {
 
         $sqlParams = [];
 
+        //Adding parameters to the endpoint query
         if(filter_has_var(INPUT_GET, 'paper_id')) {
             
             if(!filter_var($_GET['paper_id'],FILTER_VALIDATE_INT)) {
