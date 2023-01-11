@@ -14,12 +14,15 @@ class Update extends Endpoint {
 
         $this->validateRequestMethod("POST");
         $this->validateToken();
+        $this->validateUpdateParams();
 
-        http_response_code(503);
+        $dbConn = new Database('db/chiplay.sqlite');
+        $this->initialiseSQL();
+        $queryResult = $dbConn->executeSQL($this->getSQL(), $this->getSQLParams());
 
         $this->setData(array(
             "length" => 0,
-            "message" => "endpoint building",
+            "message" => "Success",
             "data" => null
         ));
     }
@@ -45,6 +48,42 @@ class Update extends Endpoint {
 
         $jwt = trim(substr($authorizationHeader, 7));
 
-        $decoded = JWT::decode($jwt, new Key($secretKey, 'HS256'));
+        try {
+            $decoded = JWT::decode($jwt, new Key($secretKey, 'HS256'));
+        } catch(Exception $e) {
+            throw new ClientErrorException($e->getMessage(), 401);
+        }
+
+        if($decoded->iss != $_SERVER['HTTP_HOST']) {
+            throw new ClientErrorException("Invalid token issuer", 401);
+        }
+    }
+
+    private function validateUpdateParams() {
+        if (!filter_has_var(INPUT_POST,'paper_id')) {
+            throw new ClientErrorException("paper_id parameter required", 400);
+        }
+        if (!filter_has_var(INPUT_POST,'award')) {
+            throw new ClientErrorException("award parameter required", 400);
+        }
+        $awarded = ['true', null];
+        if(!in_array($_POST['award'], $awarded)) {
+            throw new ClientErrorException("Invalid award status", 400);
+        }
+    }
+
+    protected function initialiseSQL() {
+
+        $awardSelected = $_POST['award'];
+        $paperSelected = $_POST['paper_id'];
+
+        if ($awardSelected === ""){
+            $awardSelected = null;
+        }
+
+
+        $sqlQuery = "UPDATE paper SET award = :award WHERE paper_id = :paper_id";
+        $this->setSQL($sqlQuery);
+        $this->setSQLParams(['paper_id' => $paperSelected, 'award' => $awardSelected]);
     }
 }
