@@ -11,6 +11,7 @@
         <div class = "student">
             <h2>Name: Jason Ankers</h2>
             <h2>Student ID: W20004105</h2>
+            <a href = "http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/app/">Back to Assignment Site</a>
         </div>
         <div class = "endpoints">
             <div class = "base">
@@ -112,6 +113,39 @@
                         "track_name": "CHI PLAY 2021 Full Papers",
                         "sName": "fullpapers"
                         }......
+                </p>
+            </div>
+            <div class = "papers">
+                <h3><strong>Authenticate endpoint:</strong> /webYear3/assignment/api/authenticate</h3>
+                <p><strong>Description:</strong> Returns a JSON object of information containing a JSON Web Token</p>
+                <p><strong>Methods supported:</strong> POST</p>
+                <p><strong>Params Supported:</strong> (As basic auth) 'username', 'password'</p>
+                <p><strong>Likely response codes:</strong> 200, 400, 401, 405</p>
+                <p><strong>Example link:</strong> 'http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/authenticate'</p>
+                <p><strong>Example response:</strong>
+
+                    {
+                        "code": 405,
+                        "message": "Invalid request method",
+                        "dataReturned": null
+                    }
+
+                </p>
+            </div>
+            <div class = "papers">
+                <h3><strong>Update endpoint:</strong> /webYear3/assignment/api/update</h3>
+                <p><strong>Description:</strong> Returns a success message and validates the JWT, the runs an update query on the database for the papers table</p>
+                <p><strong>Methods supported:</strong> POST</p>
+                <p><strong>Params Supported:</strong> N/A</p>
+                <p><strong>Likely response codes:</strong> 200, 400, 401, 405</p>
+                <p><strong>Example link:</strong> 'http://unn-w20004105.newnumyspace.co.uk/webYear3/assignment/api/update'</p>
+                <p><strong>Example response:</strong>
+
+                    {
+                        "length": 0,
+                        "message": "Success",
+                        "data": null
+                    }
                 </p>
             </div>
         </div>

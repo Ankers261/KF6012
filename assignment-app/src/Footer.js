@@ -1,5 +1,13 @@
 import './Footer.css';
 
+/**
+ * 
+ * Footer component used to display simple info at the bottom of the pages
+ * 
+ * @author Jason Ankers
+ * 
+ */
+
 function Footer() {
   return (
     <div className="Footer">

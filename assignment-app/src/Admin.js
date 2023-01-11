@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Buffer } from 'buffer';
 import UpdateAward from './UpdateAward';
 
-
+/**
+ * Admin component that allows the user to see a list of all the papers and edit the award status of each one
+ * 
+ * @author Jason Ankers
+ * @author John Rooksby
+ */
 function Admin(props) {
 
     const [username, setUsername] = useState("");

@@ -6,6 +6,15 @@ import Search from './Search';
 import Select from './Select';
 import './Track.css';
 
+
+/**
+ * 
+ * Track component that is similar to the papers component except this only displays papers from each track specifically
+ * 
+ * @author Jason Ankers
+ * @author John Rooksby
+ */
+
 function Track(props) {
     
     const [tracks, setTracks] = useState([]);

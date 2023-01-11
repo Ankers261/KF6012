@@ -7,6 +7,12 @@ import Navbar from './Navbar';
 import Admin from './Admin';
 import {Route, Routes} from 'react-router-dom';
 
+
+/**
+ * Main app component that holds all the routes and the main Navbar for all apps. This is what displays the app.
+ * @author Jason Ankers
+ */
+
 function App() {
 
   const [authenticated, setAuthenticated] = useState(false);

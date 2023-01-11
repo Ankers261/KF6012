@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import './PaperInfo.css';
 
-function PaperInformation(props) {
+/**
+ * 
+ * Fetches and displays the information for each individual paper
+ * 
+ * @author Jason Ankers
+ * @author John Rooksby
+ */
 
-    //Insert a use effect here for the authors end point
-    //This should fix the issue of the page not refreshing each when clicking on the links
+function PaperInformation(props) {
     
     const [authors, setAuthors] = useState([]);
     const [visible, setVisible] = useState(false);

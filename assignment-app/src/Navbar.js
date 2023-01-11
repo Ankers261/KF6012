@@ -1,6 +1,11 @@
 import {Link} from 'react-router-dom';
 import './Navbar.css';
-
+/**
+ * Navigation bar at the top of each page that allows users to navigate the components of the app
+ *  
+ * @author Jason Ankers
+ * 
+ */
 function Navbar() {
 
   /**

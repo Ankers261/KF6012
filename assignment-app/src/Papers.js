@@ -5,6 +5,17 @@ import PaperInformation from './PaperInformation';
 import Search from './Search';
 import './Papers.css';
 
+
+/**
+ * 
+ * 
+ * Standard page for displaying all papers and allowing user to search and filter papers
+ * 
+ * 
+ * @author Jason Ankers
+ * @author John Rooksby
+ */
+
 function Papers() {
     
     const [papers, setPapers] = useState([]);

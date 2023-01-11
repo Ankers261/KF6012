@@ -1,6 +1,13 @@
 
 function UpdateAward(props) {
 
+/**
+ * Update award component that handles updating the award status of each paper in the database
+ * 
+ * @author Jason Ankers
+ * @author John Rooksby
+ */
+
     function refreshPage() {
         setTimeout(() => {
             window.location.reload(false);
